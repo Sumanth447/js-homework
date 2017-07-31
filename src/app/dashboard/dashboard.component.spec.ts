@@ -9,6 +9,7 @@ import { UserService } from '../user.service';
 import { UserDetailComponent } from '../user/detail.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
+import {AppModule} from '../app.module';
 
 
 describe('DashboardComponent', () => {
@@ -17,8 +18,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent, LogoutComponent, UserDetailComponent ],
-      imports: [ MaterialModule.forRoot(), RouterModule, AppRoutingModule ],
+      declarations: [ ],
+      imports: [ AppModule ],
       providers: [ {provide: APP_BASE_HREF, useValue: '/'} ],
     })
     .compileComponents();

@@ -8,6 +8,7 @@ import { UserDetailComponent } from '../user/detail.component';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { UserInfoComponent } from './user-info.component';
+import {AppModule} from '../app.module';
 
 describe('UserInfoComponent', () => {
   let component: UserInfoComponent;
@@ -16,8 +17,8 @@ describe('UserInfoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [ {provide: APP_BASE_HREF, useValue: '/'} ],
-      declarations: [ UserInfoComponent, DashboardComponent, LogoutComponent, UserDetailComponent ],
-      imports: [ MaterialModule.forRoot(), RouterModule, AppRoutingModule ]
+      declarations: [ ],
+      imports: [ AppModule ]
     })
     .compileComponents();
   }));
