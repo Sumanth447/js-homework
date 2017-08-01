@@ -1,0 +1,62 @@
+<div class="create-user">
+  <h3>Create User</h3>
+  <form class="user_create_form" (ngSubmit)="f.form.valid && createUser();" #f="ngForm" novalidate>
+
+    <input type="email"
+           class="app-input"
+           [ngClass]="{ 'validation-error': f.submitted && !email.valid }"
+           placeholder="Email Address"
+           name="email"
+           [(ngModel)]="model.email"
+           #email="ngModel"
+           required
+           email/>
+
+    <input type="text"
+           class="app-input"
+           [ngClass]="{ 'validation-error': f.submitted && !fname.valid }"
+           placeholder="First name"
+           [(ngModel)]="model.fname"
+           name="fname"
+           #fname="ngModel"
+           required>
+
+    <input type="text"
+           class="app-input"
+           [ngClass]="{ 'validation-error': f.submitted && !lname.valid }"
+           placeholder="Last Name"
+           [(ngModel)]="model.lname"
+           name="lname"
+           #lname="ngModel"
+           required>
+
+    <button class="btn-create-user" type="submit">Save</button>
+
+    <label *ngIf="f.submitted && success"
+           class="success col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+      User Created
+    </label>
+
+    <label *ngIf="f.submitted && !email.valid"
+           class="danger col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+      {{serverResponse.email}}
+    </label>
+
+    <label *ngIf="f.submitted && !fname.valid"
+           class="danger col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+      {{serverResponse.first_name}}
+    </label>
+
+    <label *ngIf="f.submitted && !fname.valid"
+           class="danger col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+      {{serverResponse.last_name}}
+    </label>
+
+  </form>
+</div>
+
+
+
+
+
+

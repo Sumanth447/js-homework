@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { LogoutComponent } from '../account/logout.component';
+import {AppModule} from '../app.module';
 
 
 describe('UserDetailComponent', () => {
@@ -14,8 +15,8 @@ describe('UserDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserDetailComponent, DashboardComponent, LogoutComponent ],
-      imports: [ MaterialModule.forRoot(), RouterModule, AppRoutingModule ],
+      declarations: [],
+      imports: [ AppModule ],
       providers: [ {provide: APP_BASE_HREF, useValue: '/'} ]
     })
     .compileComponents();
