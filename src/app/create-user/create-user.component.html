@@ -12,6 +12,11 @@
            required
            email/>
 
+    <label *ngIf="f.submitted && !email.valid"
+           class="danger col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+      {{serverResponse.email}}
+    </label>
+
     <input type="text"
            class="app-input"
            [ngClass]="{ 'validation-error': f.submitted && !fname.valid }"
@@ -20,6 +25,11 @@
            name="fname"
            #fname="ngModel"
            required>
+
+    <label *ngIf="f.submitted && !fname.valid"
+           class="danger">
+      {{serverResponse.first_name}}
+    </label>
 
     <input type="text"
            class="app-input"
@@ -30,26 +40,16 @@
            #lname="ngModel"
            required>
 
+    <label *ngIf="f.submitted && !fname.valid"
+           class="danger">
+      {{serverResponse.last_name}}
+    </label>
+
     <button class="btn-create-user" type="submit">Save</button>
 
     <label *ngIf="f.submitted && success"
-           class="success col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+           class="success">
       User Created
-    </label>
-
-    <label *ngIf="f.submitted && !email.valid"
-           class="danger col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-      {{serverResponse.email}}
-    </label>
-
-    <label *ngIf="f.submitted && !fname.valid"
-           class="danger col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-      {{serverResponse.first_name}}
-    </label>
-
-    <label *ngIf="f.submitted && !fname.valid"
-           class="danger col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-      {{serverResponse.last_name}}
     </label>
 
   </form>

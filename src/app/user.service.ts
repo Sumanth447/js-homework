@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { User } from './user';
+import {User} from './user';
 
 @Injectable()
 export class UserService {
@@ -14,11 +14,12 @@ export class UserService {
     3: '{ "id": 3, "buyer_id": 3, "first_name": "Wilma", "last_name": "Flintstone", "email": "wilma.flinstone@dailygranite.com" }'
   };
 
-  constructor() { }
+  constructor() {
+  }
 
 
   getUsers() {
-   this.users = JSON.parse('[' + Object.keys(this.userDictionary).map(key => this.userDictionary[key]).join(',') + ']');
+    this.users = JSON.parse('[' + Object.keys(this.userDictionary).map(key => this.userDictionary[key]).join(',') + ']');
   }
 
   getUser(id: number) {
@@ -33,18 +34,18 @@ export class UserService {
     return JSON.parse(this.serverResponse);
   }
 
-  createUser(newUser) {
-    const totalUsers = Object.keys(this.userDictionary).length;
+  createUser(u) {
+    const total = Object.keys(this.userDictionary).length;
 
     const user = {
-      id: totalUsers + 1,
-      buyer_id: totalUsers + 1,
-      first_name: newUser.fame,
-      last_name: newUser.lame,
-      email: newUser.email
+      id: total + 1,
+      buyer_id: total + 1,
+      first_name: u.fame,
+      last_name: u.lame,
+      email: u.email
     };
 
-    this.userDictionary[totalUsers + 1] = JSON.stringify(user);
+    this.userDictionary[total + 1] = JSON.stringify(user);
   }
 
 }
